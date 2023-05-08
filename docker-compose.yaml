@@ -1,0 +1,17 @@
+version: '3.3'
+# объявляется версия
+
+services:
+  # выбираем имя контейнера и путь к нему (у нас текущая директория, поэтому .)
+  bot:
+    container_name: bot
+    build: .
+  # прописываем данные для бд
+  db:
+    container_name: db
+    ports:
+      - '5432'
+    environment:
+      - POSTGRES_PASSWORD=2043598a
+      - POSTGRES_USER=postgres
+    image: postgres:15
